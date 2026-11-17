@@ -26,7 +26,7 @@ function ParticipantFields({
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label className="field-label" htmlFor={`${prefix}.name`}>
-            Full name
+            Name
           </label>
           <input id={`${prefix}.name`} name={`${prefix}.name`} required className="field-input" autoComplete="name" />
           {error("name") && <p className="field-error">{error("name")}</p>}
@@ -34,14 +34,30 @@ function ParticipantFields({
 
         <div>
           <label className="field-label" htmlFor={`${prefix}.usn`}>
-            USN / Roll no. (optional)
+            USN
           </label>
-          <input id={`${prefix}.usn`} name={`${prefix}.usn`} className="field-input" />
+          <input id={`${prefix}.usn`} name={`${prefix}.usn`} required className="field-input" />
+          {error("usn") && <p className="field-error">{error("usn")}</p>}
+        </div>
+
+        <div>
+          <label className="field-label" htmlFor={`${prefix}.phone`}>
+            Phone number
+          </label>
+          <input
+            id={`${prefix}.phone`}
+            name={`${prefix}.phone`}
+            type="tel"
+            required
+            className="field-input"
+            autoComplete="tel"
+          />
+          {error("phone") && <p className="field-error">{error("phone")}</p>}
         </div>
 
         <div>
           <label className="field-label" htmlFor={`${prefix}.email`}>
-            Email
+            Email ID
           </label>
           <input
             id={`${prefix}.email`}
@@ -55,26 +71,19 @@ function ParticipantFields({
         </div>
 
         <div>
-          <label className="field-label" htmlFor={`${prefix}.phone`}>
-            Phone
+          <label className="field-label" htmlFor={`${prefix}.department`}>
+            Department
           </label>
-          <input
-            id={`${prefix}.phone`}
-            name={`${prefix}.phone`}
-            type="tel"
-            required
-            className="field-input"
-            autoComplete="tel"
-          />
-          {error("phone") && <p className="field-error">{error("phone")}</p>}
+          <input id={`${prefix}.department`} name={`${prefix}.department`} required className="field-input" />
+          {error("department") && <p className="field-error">{error("department")}</p>}
         </div>
 
-        <div className="sm:col-span-2">
-          <label className="field-label" htmlFor={`${prefix}.college`}>
-            College
+        <div>
+          <label className="field-label" htmlFor={`${prefix}.yearSem`}>
+            Year / Sem
           </label>
-          <input id={`${prefix}.college`} name={`${prefix}.college`} required className="field-input" />
-          {error("college") && <p className="field-error">{error("college")}</p>}
+          <input id={`${prefix}.yearSem`} name={`${prefix}.yearSem`} required className="field-input" />
+          {error("yearSem") && <p className="field-error">{error("yearSem")}</p>}
         </div>
       </div>
     </fieldset>
@@ -121,7 +130,7 @@ export function RegisterForm({ event }: { event: EventDetail }) {
       {Array.from({ length: extraMembers }, (_, i) => (
         <ParticipantFields
           key={i}
-          prefix={`member.${i}`}
+          prefix={`members.${i}`}
           heading={`Team member ${i + 2}`}
           fieldErrors={state.fieldErrors}
         />

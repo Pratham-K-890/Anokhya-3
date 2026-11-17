@@ -19,7 +19,7 @@ const hourTicks = Array.from(
 export function ScheduleSection() {
   return (
     <section id="schedule" className="section py-20 sm:py-28">
-      <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
+      <div data-enter="reveal" className="mb-10 flex flex-wrap items-end justify-between gap-4">
         <div className="max-w-xl">
           <p className="eyebrow mb-3">Schedule</p>
           <h2 className="text-3xl font-semibold tracking-tight text-balance sm:text-4xl">Day-of timeline</h2>
@@ -28,7 +28,7 @@ export function ScheduleSection() {
         <span className="chip">Tentative — final timings announced closer to the event</span>
       </div>
 
-      <div className="glass-panel overflow-x-auto p-4 sm:p-6">
+      <div data-enter="reveal" className="glass-panel overflow-x-auto p-4 sm:p-6">
         <div className="min-w-[760px]">
           <div className="flex pl-44">
             {hourTicks.map((minute) => (

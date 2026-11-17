@@ -4,11 +4,12 @@ import type { EventDetail } from "@/data/events";
 const phoneRegex = /^[0-9+\-\s()]{7,16}$/;
 
 const participantSchema = z.object({
-  name: z.string().trim().min(2, "Enter a full name").max(80),
-  email: z.email("Enter a valid email"),
+  name: z.string().trim().min(2, "Enter your name").max(80),
+  usn: z.string().trim().min(3, "Enter your USN").max(20),
   phone: z.string().trim().regex(phoneRegex, "Enter a valid phone number"),
-  usn: z.string().trim().max(20).optional().or(z.literal("")),
-  college: z.string().trim().min(2, "Enter a college name").max(120),
+  email: z.email("Enter a valid email ID"),
+  department: z.string().trim().min(2, "Enter your department").max(80),
+  yearSem: z.string().trim().min(1, "Enter your year and semester").max(40),
 });
 
 export type Participant = z.infer<typeof participantSchema>;

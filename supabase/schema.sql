@@ -17,8 +17,9 @@ create table if not exists public.registrations (
   leader_name text not null,
   leader_email text not null,
   leader_phone text not null,
-  leader_usn text,
-  leader_college text not null,
+  leader_usn text not null,
+  leader_department text not null,
+  leader_year_sem text not null,
   -- Additional team members (excludes the leader). Empty array for solo events.
   members jsonb not null default '[]'::jsonb,
   created_at timestamptz not null default now(),
@@ -38,3 +39,20 @@ create policy "public can register"
   with check (true);
 
 create index if not exists registrations_event_slug_idx on public.registrations (event_slug);
+
+-- Tables created by an earlier copy of this file still have college and an optional USN.
+alter table public.registrations add column if not exists leader_department text;
+alter table public.registrations add column if not exists leader_year_sem text;
+
+do $$
+begin
+  if exists (
+    select 1
+    from information_schema.columns
+    where table_schema = 'public'
+      and table_name = 'registrations'
+      and column_name = 'leader_college'
+  ) then
+    alter table public.registrations alter column leader_college drop not null;
+  end if;
+end $$;

@@ -12,6 +12,7 @@ export function EventCard({ event }: { event: EventDetail }) {
   return (
     <Link
       href={`/events/${event.slug}`}
+      data-enter="reveal"
       className="glass-panel group flex flex-col gap-4 p-6 transition-colors hover:bg-white/[0.06]"
     >
       <div
@@ -27,10 +28,16 @@ export function EventCard({ event }: { event: EventDetail }) {
       </div>
 
       <div className="mt-auto flex items-center justify-between pt-2">
-        <span className="chip" style={{ color, borderColor: `${color}40` }}>
+        <span
+          className="chip"
+          style={{
+            color: "var(--color-electric)",
+            borderColor: "color-mix(in srgb, var(--color-electric) 40%, transparent)",
+          }}
+        >
           {teamLabel}
         </span>
-        <span className="inline-flex items-center gap-1 text-sm font-semibold text-[var(--color-brand)] transition-transform group-hover:translate-x-0.5">
+        <span className="inline-flex items-center gap-1 text-sm font-semibold text-[var(--color-electric)] transition-transform group-hover:translate-x-0.5">
           Register
           <ArrowRight size={14} aria-hidden />
         </span>

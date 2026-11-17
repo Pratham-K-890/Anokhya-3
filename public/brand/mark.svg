@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="stroke" x1="10" y1="8" x2="54" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f6d37a" />
+      <stop offset="0.42" stop-color="#ff9a3d" />
+      <stop offset="1" stop-color="#e8740f" />
+    </linearGradient>
+    <radialGradient id="fill" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(32 32) rotate(90) scale(30)">
+      <stop stop-color="#1c1410" />
+      <stop offset="1" stop-color="#0a080c" />
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="32" r="30.5" fill="url(#fill)" />
+  <circle cx="32" cy="32" r="30.25" fill="none" stroke="url(#stroke)" stroke-width="1.35" />
+  <circle cx="32" cy="32" r="27.75" fill="none" stroke="url(#stroke)" stroke-width="0.55" opacity="0.45" />
+  <g stroke="url(#stroke)" stroke-linecap="round" fill="none" stroke-width="1.15" opacity="0.9">
+    <path d="M32 7.5a25 25 0 0 1 17.8 7.4" />
+    <path d="M49.5 18.5a25 25 0 0 1 4.6 11.2" />
+    <path d="M54 32a25 25 0 0 1-6.2 14.8" />
+    <path d="M40 52.5a25 25 0 0 1-14.2 2.2" />
+    <path d="M14.5 49a25 25 0 0 1-9.8-12.5" />
+    <path d="M9.5 28.5a25 25 0 0 1 6.5-15.2" />
+    <path d="M21 11.5a25 25 0 0 1 7.5-3.2" />
+  </g>
+  <g stroke="url(#stroke)" stroke-linecap="round" fill="none">
+    <path d="M18 32h-3.2M46 32h3.2M32 18v-3.2M32 46v3.2" stroke-width="1.1" />
+    <circle cx="14.8" cy="32" r="1.15" fill="url(#stroke)" stroke="none" />
+    <circle cx="49.2" cy="32" r="1.15" fill="url(#stroke)" stroke="none" />
+    <circle cx="32" cy="14.8" r="1.15" fill="url(#stroke)" stroke="none" />
+    <circle cx="32" cy="49.2" r="1.15" fill="url(#stroke)" stroke="none" />
+  </g>
+  <g stroke="url(#stroke)" stroke-linejoin="round" fill="none">
+    <rect x="24.25" y="24.25" width="15.5" height="15.5" rx="2.75" stroke-width="1.55" />
+    <rect x="27.5" y="27.5" width="9" height="9" rx="1.25" stroke-width="1" opacity="0.92" />
+    <path d="M33.25 27.5v3.25h3.25" stroke-width="1" opacity="0.85" />
+  </g>
+  <g stroke="url(#stroke)" stroke-linecap="round" fill="none" stroke-width="1.05">
+    <path d="M28 22.1v-2.35M32 21.35v-3.1M36 22.1v-2.35" />
+    <path d="M28 41.9v2.35M32 42.65v3.1M36 41.9v2.35" />
+    <path d="M22.1 28h-2.35M21.35 32h-3.1M22.1 36h-2.35" />
+    <path d="M41.9 28h2.35M42.65 32h3.1M41.9 36h2.35" />
+  </g>
+  <g fill="url(#stroke)" stroke="none">
+    <circle cx="28" cy="18.75" r="0.95" />
+    <circle cx="32" cy="17.85" r="0.95" />
+    <circle cx="36" cy="18.75" r="0.95" />
+    <circle cx="28" cy="45.25" r="0.95" />
+    <circle cx="32" cy="46.15" r="0.95" />
+    <circle cx="36" cy="45.25" r="0.95" />
+    <circle cx="18.75" cy="28" r="0.95" />
+    <circle cx="17.85" cy="32" r="0.95" />
+    <circle cx="18.75" cy="36" r="0.95" />
+    <circle cx="45.25" cy="28" r="0.95" />
+    <circle cx="46.15" cy="32" r="0.95" />
+    <circle cx="45.25" cy="36" r="0.95" />
+  </g>
+</svg>

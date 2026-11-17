@@ -15,6 +15,9 @@
   --color-brand: #e8740f;
   --color-brand-hover: #ff9a3d;
   --color-brand-foreground: #190b02;
+  --color-electric: #0297de;
+  --color-electric-hover: #3ab4ea;
+  --color-electric-ink: #041018;
   --color-gold: #f6d37a;
 
   --color-ai: #4fb4c9;
@@ -33,12 +36,43 @@
   html {
     scroll-behavior: smooth;
     color-scheme: dark;
+    background-color: var(--color-background);
   }
 
   body {
+    position: relative;
+    z-index: 0;
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+  }
+
+  .site-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    background: #08060a;
+  }
+
+  /* Close, dark tones only, so the wash stays a sheen instead of a stripe. */
+  .site-bg::before {
+    content: "";
+    position: absolute;
+    inset: -20%;
+    background:
+      radial-gradient(ellipse 75% 60% at 8% 15%, #3d2014 0%, transparent 64%),
+      radial-gradient(ellipse 65% 55% at 92% 6%, #2c1810 0%, transparent 60%),
+      radial-gradient(ellipse 85% 50% at 48% 82%, #2a1610 0%, transparent 66%);
+    filter: blur(50px);
+  }
+
+  .site-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(125deg, transparent 20%, rgba(255, 214, 170, 0.04) 48%, transparent 74%);
   }
 
   ::selection {
@@ -95,6 +129,16 @@
 
 @utility field-error {
   @apply mt-1 text-xs font-medium text-[#f28b82];
+}
+
+/* Hide the hero entrance targets before GSAP paints them in. Reduced motion keeps them visible. */
+@media (prefers-reduced-motion: no-preference) {
+  html.motion-ready [data-enter="mark"],
+  html.motion-ready [data-enter="copy"],
+  html.motion-ready [data-enter="chip"],
+  html.motion-ready [data-enter="cta"] {
+    opacity: 0;
+  }
 }
 
 @layer utilities {

@@ -1,13 +1,15 @@
 import Link from "next/link";
-import { Globe } from "lucide-react";
 import { Mark } from "@/components/mark";
-import { InstagramIcon } from "@/components/icons";
+import { InstagramIcon, LinkedInIcon } from "@/components/icons";
 import { site } from "@/data/site";
+
+const contactButton =
+  "btn bg-[var(--color-electric)] text-[var(--color-electric-ink)] shadow-[0_8px_24px_-8px_rgba(2,151,222,0.65)] hover:bg-[var(--color-electric-hover)] hover:shadow-[0_8px_28px_-6px_rgba(58,180,234,0.55)] focus-visible:outline-[var(--color-electric)] active:scale-[0.97]";
 
 export function SiteFooter() {
   return (
     <footer id="contact" className="border-t border-[var(--color-border)]">
-      <div className="section py-16 text-center">
+      <div data-enter="reveal" className="section py-16 text-center">
         <p className="eyebrow mb-3">Get in touch</p>
         <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
           Questions, or want to sponsor {site.name}?
@@ -17,13 +19,13 @@ export function SiteFooter() {
         </p>
 
         <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
-          <Link href={site.instagram} target="_blank" rel="noreferrer" className="btn-primary">
+          <Link href={site.instagram} target="_blank" rel="noreferrer" className={contactButton}>
             <InstagramIcon size={16} />
             {site.instagramHandle}
           </Link>
-          <Link href={site.url} target="_blank" rel="noreferrer" className="btn-ghost">
-            <Globe size={16} aria-hidden />
-            anokhya.site
+          <Link href={site.linkedIn} target="_blank" rel="noreferrer" className={contactButton}>
+            <LinkedInIcon size={16} />
+            {site.linkedInLabel}
           </Link>
         </div>
       </div>

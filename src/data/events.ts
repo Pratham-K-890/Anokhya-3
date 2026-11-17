@@ -53,15 +53,14 @@ export const events: EventDetail[] = [
     capacityNote: "Limited to 4 teams",
   },
   {
-    slug: "radiant-clash",
-    name: "Radiant Clash — Valorant Showdown",
-    category: "Gaming",
-    eventType: "PC-based Valorant tournament for competitive gaming enthusiasts.",
-    format:
-      "32 teams of 5 players compete through online qualifiers, with the top 8 advancing to offline finals.",
-    rules: "Strict fair-play ensured for a competitive environment.",
-    teamSize: { min: 5, max: 5 },
-    capacityNote: "Limited to 32 teams",
+    slug: "capture-x",
+    name: "Capture X",
+    category: "Creative",
+    eventType: "Photography competition.",
+    format: "Capture creative photos based on the given theme.",
+    task: "Click and submit your best photograph showcasing creativity and perspective.",
+    judging: "Based on creativity, composition, and originality.",
+    teamSize: { min: 1, max: 1 },
   },
   {
     slug: "treasure-hunt",
@@ -74,14 +73,15 @@ export const events: EventDetail[] = [
     teamSize: { min: 3, max: 3 },
   },
   {
-    slug: "capture-x",
-    name: "Capture X",
-    category: "Creative",
-    eventType: "Photography competition.",
-    format: "Capture creative photos based on the given theme.",
-    task: "Click and submit your best photograph showcasing creativity and perspective.",
-    judging: "Based on creativity, composition, and originality.",
-    teamSize: { min: 1, max: 1 },
+    slug: "radiant-clash",
+    name: "Radiant Clash — Valorant Showdown",
+    category: "Gaming",
+    eventType: "PC-based Valorant tournament for competitive gaming enthusiasts.",
+    format:
+      "32 teams of 5 players compete through online qualifiers, with the top 8 advancing to offline finals.",
+    rules: "Strict fair-play ensured for a competitive environment.",
+    teamSize: { min: 5, max: 5 },
+    capacityNote: "Limited to 32 teams",
   },
 ];
 

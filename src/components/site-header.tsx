@@ -21,7 +21,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-[var(--color-border)] bg-[var(--color-background)]/70 backdrop-blur-xl">
       <div className="section flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
-          <Mark size={32} />
+          <Mark size={34} />
           <span className="font-semibold tracking-tight text-[var(--color-foreground)]">{site.name}</span>
         </Link>
 

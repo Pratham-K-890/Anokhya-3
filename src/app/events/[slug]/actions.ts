@@ -8,10 +8,11 @@ import type { RegisterActionState } from "@/lib/register-state";
 function readParticipant(formData: FormData, prefix: string): Participant {
   return {
     name: String(formData.get(`${prefix}.name`) ?? ""),
-    email: String(formData.get(`${prefix}.email`) ?? ""),
-    phone: String(formData.get(`${prefix}.phone`) ?? ""),
     usn: String(formData.get(`${prefix}.usn`) ?? ""),
-    college: String(formData.get(`${prefix}.college`) ?? ""),
+    phone: String(formData.get(`${prefix}.phone`) ?? ""),
+    email: String(formData.get(`${prefix}.email`) ?? ""),
+    department: String(formData.get(`${prefix}.department`) ?? ""),
+    yearSem: String(formData.get(`${prefix}.yearSem`) ?? ""),
   };
 }
 
@@ -27,7 +28,7 @@ export async function registerForEvent(
   }
 
   const extraMembers = event.teamSize.max - 1;
-  const members = Array.from({ length: extraMembers }, (_, i) => readParticipant(formData, `member.${i}`));
+  const members = Array.from({ length: extraMembers }, (_, i) => readParticipant(formData, `members.${i}`));
 
   const schema = buildRegistrationSchema(event);
   const parsed = schema.safeParse({
@@ -62,8 +63,9 @@ export async function registerForEvent(
     leader_name: leader.name,
     leader_email: leader.email,
     leader_phone: leader.phone,
-    leader_usn: leader.usn || null,
-    leader_college: leader.college,
+    leader_usn: leader.usn,
+    leader_department: leader.department,
+    leader_year_sem: leader.yearSem,
     members: parsedMembers,
   });
 

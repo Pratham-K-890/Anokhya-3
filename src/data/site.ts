@@ -25,4 +25,6 @@ export const site = {
   url: "https://anokhya.site",
   instagram: "https://instagram.com/_anokhya",
   instagramHandle: "@_anokhya",
+  linkedIn: "https://www.linkedin.com/company/aimldeptdsce/posts/?feedView=all",
+  linkedInLabel: "AIML Dept. DSCE",
 } as const;

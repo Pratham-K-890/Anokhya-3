@@ -3,6 +3,7 @@ import { Dancing_Script, Inter } from "next/font/google";
 import { site } from "@/data/site";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { PageMotion } from "@/components/page-motion";
 import "./globals.css";
 
 const inter = Inter({
@@ -31,12 +32,17 @@ export const metadata: Metadata = {
     url: site.url,
     siteName: site.name,
     type: "website",
-    images: ["/brand/mark-512.png"],
+    images: [{ url: "/brand/mark-512.png", width: 512, height: 512, alt: site.name }],
   },
   twitter: {
     card: "summary",
     title: `${site.name} — ${site.tagline}`,
     description: site.shortDescription,
+    images: ["/brand/mark-512.png"],
+  },
+  icons: {
+    icon: [{ url: "/brand/mark.svg", type: "image/svg+xml" }, { url: "/brand/mark-32.png", sizes: "32x32", type: "image/png" }],
+    apple: "/brand/mark-180.png",
   },
 };
 
@@ -46,8 +52,9 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${script.variable}`}>
+    <html lang="en" className={`${inter.variable} ${script.variable} motion-ready`}>
       <body className="grain-overlay min-h-screen antialiased">
+        <div className="site-bg" aria-hidden />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-full focus:bg-[var(--color-brand)] focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-[var(--color-brand-foreground)]"
@@ -55,8 +62,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
         <SiteHeader />
-        <main id="main">{children}</main>
-        <SiteFooter />
+        <PageMotion>
+          <main id="main">{children}</main>
+          <SiteFooter />
+        </PageMotion>
       </body>
     </html>
   );

@@ -54,7 +54,7 @@ forms need Supabase (below) before they can actually save anyone.
   - **Schedule times**: the deck has no per-event timings, so `src/data/schedule.ts` has a placeholder
     run-of-day, clearly labeled "Tentative" on the page. Edit that file once real timings exist.
 - No personal contact details (student coordinator names/phone numbers from the sponsorship deck) are
-  on the site — only the public `@_anokhya` Instagram and `anokhya.site`, per the brand's own poster.
+  on the site — only the public `@_anokhya` Instagram and the AIML Dept. DSCE LinkedIn page.
 
 ### Editing content
 
@@ -62,7 +62,7 @@ forms need Supabase (below) before they can actually save anyone.
 - `src/data/events.ts` — the 6 events, rules, team sizes. `slug` doubles as the Supabase `event_slug`
   value, so changing a slug after registrations start means old rows won't match the new one.
 - `src/data/schedule.ts` — the day-of timeline shown on the homepage.
-- `public/brand/` — logo marks cropped from the official poster artwork.
+- `public/brand/` — vector chip mark (`mark.svg`) plus PNG exports for favicons and Open Graph (`node scripts/generate-brand-mark.mjs`).
 
 ### Structure
 
