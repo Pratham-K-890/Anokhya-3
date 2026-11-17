@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-script: var(--font-script), cursive;
+
+  --color-background: #08060a;
+  --color-surface: #120c0a;
+  --color-surface-raised: #1a120e;
+  --color-foreground: #f5f1ea;
+  --color-muted-foreground: #a99d92;
+  --color-border: rgba(245, 241, 234, 0.1);
+  --color-border-strong: rgba(245, 241, 234, 0.18);
+
+  --color-brand: #e8740f;
+  --color-brand-hover: #ff9a3d;
+  --color-brand-foreground: #190b02;
+  --color-gold: #f6d37a;
+
+  --color-ai: #4fb4c9;
+  --color-gaming: #e8740f;
+  --color-outdoor: #d9a441;
+  --color-creative: #c2558a;
+
+  --max-width-content: 72rem;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+
+  ::selection {
+    background-color: var(--color-brand);
+    color: var(--color-brand-foreground);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+  }
+}
+
+@utility section {
+  @apply mx-auto w-full max-w-[72rem] px-6 sm:px-8;
+}
+
+@utility glass-panel {
+  @apply relative rounded-3xl border border-[var(--color-border)] bg-white/[0.03] backdrop-blur-xl;
+  box-shadow: inset 0 1px 0 0 rgba(245, 241, 234, 0.08);
+}
+
+@utility glass-panel-raised {
+  @apply glass-panel bg-white/[0.05] shadow-[0_8px_40px_-12px_rgba(0,0,0,0.6)];
+}
+
+@utility btn {
+  @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-6 text-sm font-semibold tracking-tight transition-all duration-200 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-brand)] disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+@utility btn-primary {
+  @apply btn bg-[var(--color-brand)] text-[var(--color-brand-foreground)] shadow-[0_8px_24px_-8px_rgba(232,116,15,0.65)] hover:bg-[var(--color-brand-hover)] hover:shadow-[0_8px_28px_-6px_rgba(255,154,61,0.55)] active:scale-[0.97];
+}
+
+@utility btn-ghost {
+  @apply btn border border-[var(--color-border-strong)] bg-white/[0.02] text-[var(--color-foreground)] hover:bg-white/[0.06] active:scale-[0.97];
+}
+
+@utility chip {
+  @apply inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border-strong)] bg-white/[0.03] px-3 py-1 text-xs font-medium text-[var(--color-muted-foreground)];
+}
+
+@utility eyebrow {
+  @apply text-xs font-semibold tracking-[0.2em] text-[var(--color-brand)] uppercase;
+}
+
+@utility field-label {
+  @apply mb-1.5 block text-sm font-medium text-[var(--color-foreground)];
+}
+
+@utility field-input {
+  @apply block w-full rounded-xl border border-[var(--color-border-strong)] bg-white/[0.03] px-4 py-2.5 text-[15px] text-[var(--color-foreground)] placeholder:text-[var(--color-muted-foreground)]/70 transition-colors focus:border-[var(--color-brand)] focus:bg-white/[0.05] focus:outline-none;
+}
+
+@utility field-error {
+  @apply mt-1 text-xs font-medium text-[#f28b82];
+}
+
+@layer utilities {
+  .grain-overlay {
+    position: relative;
+  }
+
+  .grain-overlay::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.035;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .text-glow {
+    text-shadow: 0 0 24px rgba(246, 211, 122, 0.45), 0 0 48px rgba(232, 116, 15, 0.25);
+  }
+}
