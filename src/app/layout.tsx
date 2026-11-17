@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Dancing_Script, Inter } from "next/font/google";
 import { site } from "@/data/site";
 import { SiteHeader } from "@/components/site-header";
@@ -66,6 +67,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main id="main">{children}</main>
           <SiteFooter />
         </PageMotion>
+        <SpeedInsights />
       </body>
     </html>
   );
